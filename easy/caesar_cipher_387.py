@@ -30,3 +30,7 @@ def caesar(secret, steps):
 
 
 print(caesar("jgorevxumxgsskx", 20))
+secret = "¡Hello! How is your day going, mate?"
+coded = caesar(secret, 14)
+print(coded)
+print(caesar(coded, -14))  # Back to original
