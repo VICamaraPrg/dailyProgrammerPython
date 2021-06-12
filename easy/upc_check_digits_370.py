@@ -5,28 +5,35 @@ Challenge #370 [Easy] UPC check digits
 #  This versions is fully string free, only int is parsed.
 #  I could not find a way to not use strings for the bonus
 #  I keep it as it is for the moment
+# 0.16 Seconds to generate 100000 check codes (Without printing them), Version 1.
+# 0.42 Seconds in total printing them, Version 1.
+
+# 0.14 Seconds to generate 100000 check codes (Without printing them), Version 2.
+# 0.39 Seconds in total printing them, Version 2.
 
 
 def upc(number):
-    copy = number
-    reference = number // 10  # Prepare it for the even sum.
+    reference = number
     odd_sum = 0
     even_sum = 0
     while number != 0:
-        odd = number % 10
-        number //= 100
-        odd_sum += odd
+        odd_sum += number % 10
+        number //= 10
+        even_sum += number % 10
+        number //= 10
+    M = ((even_sum + (odd_sum * 3)) % 10)
+    M -= 2 if M != 0 else 0
 
-    odd_sum *= 3
-    while reference != 0:
-        even = reference % 10
-        reference //= 100
-        even_sum += even
-    M = (even_sum + odd_sum) % 10
-    if M != 0:
-        M -= 2
+    return reference * 10 + M
 
-    return copy * 10 + M
 
-print(upc(408450083954))  # 0
-print(upc(841057310368))  # 0
+numbers = []
+
+with open('../test_inputs/upc.txt') as lines:
+    for line in lines:
+        split = line.split()
+        for values in split:
+            numbers.append(int(values))
+
+for i in numbers:
+    print(upc(i))
