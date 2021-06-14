@@ -5,11 +5,7 @@ Challenge #370 [Easy] UPC check digits
 #  This versions is fully string free, only int is parsed.
 #  I could not find a way to not use strings for the bonus
 #  I keep it as it is for the moment
-# 0.16 Seconds to generate 100000 check codes (Without printing them), Version 1.
-# 0.42 Seconds in total printing them, Version 1.
-
-# 0.14 Seconds to generate 100000 check codes (Without printing them), Version 2.
-# 0.39 Seconds in total printing them, Version 2.
+# 0.39 Seconds in total to generate 100000 check digits (and printing them) Version 2.
 
 
 def upc(number):

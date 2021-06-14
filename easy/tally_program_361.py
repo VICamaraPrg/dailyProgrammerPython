@@ -1,3 +1,7 @@
+"""
+Challenge #361 [Easy] Tally Program
+"""
+
 def get_scores(line):
     scores = {char.lower(): 0 for char in line}
 

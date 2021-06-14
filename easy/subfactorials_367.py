@@ -1,3 +1,7 @@
+"""
+Challenge #367 [Easy] Subfactorials
+"""
+
 import itertools
 
 
